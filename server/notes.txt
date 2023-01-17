@@ -1,0 +1,25 @@
+# Bash
+
+- npm init -y 
+- npm i fastify // para criar nossa API RESTFUL
+- npm  i typescript -D // instala o typescript
+- npx tsc --init // cria a config do typescript para o projeto
+  - tsconfig -> mudar o target para es2020
+- npm i tsx -D // permite executar arquivo typescript
+- npm run dev // apos config o script
+
+- npm i -D prisma //ORM
+- npm i @prisma/client // client do prisma
+- npx prisma init --datasource-provider SQLite // estamos falando que queremos usar o banco de dados do tipo sqlite
+- npx prisma migrate dev // depois de criar a tabela em schema.prisma
+  - nome da migration: create table habits
+- npx prisma studio // para vizualizar o banco de dados
+
+- npm i @fastify/cors // configurando o cors
+
+# Config
+package.josn
+
+"scripts": {
+    "dev": "tsx src/server.ts"
+  },

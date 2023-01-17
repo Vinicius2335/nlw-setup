@@ -1,0 +1,25 @@
+https://react-native.rocketseat.dev
+
+# Bash
+
+- npm install -g expo-cli //instalando o expo
+- npx create-expo-app mobile --template // cria a aplicaçao com o react native sem o expo-cli
+  - expo init mobile // com o expo-cli
+- npx expo start // executa a aplicação
+  -expo start // com o expo-cli
+  -npm run web
+- npx expo install @expo/webpack-config@^0.17.2 // para ver a aplicação no navegador
+
+- npx expo install expo-font @expo-google-fonts/inter // fonts do google na nossa aplicaçao
+
+# OBS
+
+- app.json = as configuraçoes da nossa aplicação
+- display: flex é o padrao do react native
+- Precisamos garantir que as fontes sejam carregadas antes do app ser exibido
+- usamos o status bar do proprio react native e nao do expo
+
+# React Native Components
+- Text -> parecido com uma div
+- StatusBar
+- ActivityIndicator -> spinner

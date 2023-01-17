@@ -1,0 +1,7 @@
+# Bash
+
+-  npm create vite@latest web
+- npm i -D tailwindcss postcss autoprefixer
+  -> postcss automatizar tarefas dentro do css
+  -> autoprefixer prefixo dos browser como -webkit
+- npx tailwindcss init -p // para criar as config

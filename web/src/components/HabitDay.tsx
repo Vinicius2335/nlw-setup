@@ -1,0 +1,11 @@
+interface HabitProps {
+  completed?: number
+}
+
+export function HabitDay({ completed }: HabitProps) {
+  return (
+    <div className="h-10 w-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg">
+      <p>{completed}</p>
+    </div>
+  )
+}

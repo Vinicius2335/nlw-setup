@@ -12,14 +12,30 @@ https://react-native.rocketseat.dev
 
 - npx expo install expo-font @expo-google-fonts/inter // fonts do google na nossa aplicaçao
 
+- npm i nativewind   // NativeWind = permite usar o tailwind no react-native
+- npm i tailwind --save-dev
+- npx tailwindcss init
+  - config -> tailwind.config.js
+  - config -> babel.config.js
+  - criar o src/@types/app.d.ts
+
+- npx expo install react-native-svg // adicionando biblioteca para suportar .svg
+- npm i react-native-svg-transformer --save-dev // permite usar o svg como um componente
+  - criar metro.config.js
+  - criar src/@types/svg.d.ts
+
 # OBS
 
 - app.json = as configuraçoes da nossa aplicação
 - display: flex é o padrao do react native
 - Precisamos garantir que as fontes sejam carregadas antes do app ser exibido
 - usamos o status bar do proprio react native e nao do expo
+- já posssui uma biblioteca de icones -> import {} from "@expo/vector-icons"
 
 # React Native Components
 - Text -> parecido com uma div
 - StatusBar
 - ActivityIndicator -> spinner
+- TouchableOpacity -> para Tocar
+- Dimensions -> para calcular as dimensoes da tela do dispositivo
+- ScrollView -> para rolagem

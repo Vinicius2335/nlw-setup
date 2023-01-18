@@ -14,12 +14,23 @@
 - npx prisma migrate dev // depois de criar a tabela em schema.prisma
   - nome da migration: create table habits
 - npx prisma studio // para vizualizar o banco de dados
+- npm i -D prisma-erd-generator @mermaid-js/mermaid-cli // cria os diagramas
+  - dentro de schema.prisma
+    generator erd {
+      provider = "prisma-erd-generator"
+    }
+  - npx prisma generate
+- npx prisma db seed // rodar o seed
 
 - npm i @fastify/cors // configurando o cors
+- npm i zod // validar os dados vindo da requisição -> exmplo: routers.ts
+- npm i dayjs // biblioteca para trabalhar com datas
 
 # Config
 package.josn
 
 "scripts": {
-    "dev": "tsx src/server.ts"
+    "dev": "tsx watch src/server.ts"
   },
+
+seed = populador de banco de dados com dados ficticios

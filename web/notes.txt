@@ -6,3 +6,4 @@
   -> autoprefixer prefixo dos browser como -webkit
 - npx tailwindcss init -p // para criar as config
 - npm i dayjs
+- npm i clsx // para fazer condicionais para aplicar classes csss, ex: HabitDay

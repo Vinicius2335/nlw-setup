@@ -24,6 +24,11 @@ https://react-native.rocketseat.dev
   - criar metro.config.js
   - criar src/@types/svg.d.ts
 
+- npm install @react-navigation/native // react navigation para navegação
+    - npx expo install react-native-screens react-native-safe-area-context
+    - npm install @react-navigation/native-stack
+    - criar src/@types/navigation.d.ts
+
 # OBS
 
 - app.json = as configuraçoes da nossa aplicação
@@ -34,6 +39,7 @@ https://react-native.rocketseat.dev
 
 # React Native Components
 - Text -> parecido com uma div
+- TextInput -> input
 - StatusBar
 - ActivityIndicator -> spinner
 - TouchableOpacity -> para Tocar

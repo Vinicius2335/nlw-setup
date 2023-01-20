@@ -33,7 +33,7 @@ export function Habit() {
 
                 <View className={"mt-6"}>
                     <Checkbox title={"Beber 2L de água"} checked={false}/>
-                    <Checkbox title={"Caminhar"} checked={true}/>
+                    <Checkbox title={"Caminhar"} checked/>
                 </View>
             </ScrollView>
         </View>

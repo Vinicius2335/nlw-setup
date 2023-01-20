@@ -29,6 +29,9 @@ https://react-native.rocketseat.dev
     - npm install @react-navigation/native-stack
     - criar src/@types/navigation.d.ts
 
+- npm i axios
+- npm i clsx // para utilizar classe de forma condicional
+
 # OBS
 
 - app.json = as configuraçoes da nossa aplicação
@@ -45,3 +48,4 @@ https://react-native.rocketseat.dev
 - TouchableOpacity -> para Tocar
 - Dimensions -> para calcular as dimensoes da tela do dispositivo
 - ScrollView -> para rolagem
+- Alert -> componente para exibir mensagem

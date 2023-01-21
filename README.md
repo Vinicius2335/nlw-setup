@@ -47,6 +47,7 @@ Evento exclusivo e gratuito, promovido pela Rocketseat para ensino de tecnologia
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - React -> Front-end
+- tailwind -> css
 - [Vite](https://vitejs.dev/)
 - Typescript -> Back-end, Front-end, Mobile
 - Prisma -> ORM

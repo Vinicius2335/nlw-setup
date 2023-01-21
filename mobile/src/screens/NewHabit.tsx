@@ -31,18 +31,18 @@ export function NewHabit() {
   async function handleCreateNewHabit() {
     try {
       if (!title.trim() || weekDays.length === 0) {
-        Alert.alert("Novo Hábito", "Informe o nome do hábito e escolha a periodicidade")
+        return Alert.alert("Novo Hábito", "Informe o nome do hábito e escolha a periodicidade")
       }
 
       await api.post("/habits", {
         title,
         weekDays
       })
-      .then(() => Alert.alert("Sucesso", "Hábito criado com sucesso!"))
-      .catch(() => Alert.alert("Ops", "Erro, tente novamente!"))
 
       setTitle("")
       setWeekDays([])
+
+      Alert.alert("Sucesso", "Hábito criado com sucesso!")
 
     } catch (error) {
         console.error(error);
@@ -91,7 +91,9 @@ export function NewHabit() {
           onPress={handleCreateNewHabit}
         >
           <Feather name={"check"} size={20} color={colors.white} />
-          <Text className={"font-semibold text-base text-white ml-2"}>Confirmar</Text>
+          <Text className={"font-semibold text-base text-white ml-2"}>
+            Confirmar
+          </Text>
         </TouchableOpacity>
       </ScrollView>
     </View>

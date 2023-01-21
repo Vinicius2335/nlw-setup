@@ -15,8 +15,10 @@ app.register(cors, {
 app.register(cors)
 app.register(appRoutes)
 
+// host: "0.0.0.0" -> pra não dar problemo na conexao mobile
 app.listen({
   port: 3333,
+  host: "0.0.0.0"
 }).then(() => console.log("Servidor na porta 3333"))
 
 

@@ -1,14 +1,14 @@
-import { Text, View, ScrollView, Alert } from "react-native"
-import { api } from "../lib/axios"
-import { useState, useEffect } from "react"
+import { useNavigation, useFocusEffect } from "@react-navigation/native"
+import dayjs from "dayjs"
+import { useCallback, useState } from "react"
+import { Alert, ScrollView, Text, View } from "react-native"
 
 import { DAY_SIZE, HabitDay } from "../components/HabitDay"
 import { Header } from "../components/Header"
-import { generateDatesFromYearBeginning } from "../utils/generate-dates-from-year-beginning"
-import { useNavigation } from "@react-navigation/native"
 import { Loading } from "../components/Loading"
-import dayjs from "dayjs"
+import { api } from "../lib/axios"
 import { Summary } from "../models/Summary"
+import { generateDatesFromYearBeginning } from "../utils/generate-dates-from-year-beginning"
 
 const weekDays = ["D", "S", "T", "Q", "Q", "S", "S"]
 const datesFromYearStart = generateDatesFromYearBeginning()
@@ -18,7 +18,7 @@ const amountOfDaysToFill = minimumSummaryDatesSizes - datesFromYearStart.length
 export function Home() {
   const { navigate } = useNavigation()
   const [loading, setLoading] = useState(true)
-  const [summary, setSummary] = useState<Summary[] | null>([])
+  const [summary, setSummary] = useState<Summary[] | null>(null)
 
   async function fetchData() {
     try {
@@ -34,9 +34,13 @@ export function Home() {
     }
   }
 
-  useEffect(() => {
-    fetchData()
-  }, [])
+  // useFocusEffect -> quando o foco voltar para essa tela, ela recarrega dnv
+  // por recomendaçao da documentação precisamos do useCallback
+  useFocusEffect(
+    useCallback(() => {
+      fetchData()
+    }, [])
+  )
 
   if (loading) {
     return <Loading />
@@ -62,7 +66,7 @@ export function Home() {
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 100 }}
       >
-        { summary &&
+        {summary && (
           <View className="flex-row flex-wrap">
             {datesFromYearStart.map(date => {
               const dayWithHabits = summary.find(day => {
@@ -89,7 +93,7 @@ export function Home() {
                 />
               ))}
           </View>
-        }
+        )}
       </ScrollView>
     </View>
   )

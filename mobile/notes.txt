@@ -8,6 +8,7 @@ https://react-native.rocketseat.dev
 - npx expo start // executa a aplicação
   -expo start // com o expo-cli
   -npm run web
+  - npx expo start --clear
 - npx expo install @expo/webpack-config@^0.17.2 // para ver a aplicação no navegador
 
 - npx expo install expo-font @expo-google-fonts/inter // fonts do google na nossa aplicaçao
@@ -16,7 +17,7 @@ https://react-native.rocketseat.dev
 - npm i tailwind --save-dev
 - npx tailwindcss init
   - config -> tailwind.config.js
-  - config -> babel.config.js
+  - config -> babel.config.js -> plugins -> ['nativewind/babel']
   - criar o src/@types/app.d.ts
 
 - npx expo install react-native-svg // adicionando biblioteca para suportar .svg
@@ -31,6 +32,9 @@ https://react-native.rocketseat.dev
 
 - npm i axios
 - npm i clsx // para utilizar classe de forma condicional
+
+- npx expo install react-native-reanimated // react native reanimated para animaçoes
+  - config -> babel.config.js -> plugins -> 'react-native-reanimated/plugin'
 
 # OBS
 

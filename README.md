@@ -18,15 +18,36 @@ Evento exclusivo e gratuito, promovido pela Rocketseat para ensino de tecnologia
 
 <br>
 
-<p align="center">
-  <img alt="rocketpay" src=".github/project.png" width="100%">
-</p>
+
+
+<table>
+  <tr>
+    <td valign="center">
+      <img alt="Home do Habit" src=".github/image-front.png" width="100%" />
+    </td>
+    <td valign="center">
+      <img alt="Formulario para adicionar novo Habit" src=".github/front-form.png" width="100%" />
+    </td>
+  </tr>
+  <tr>
+    <td valign="center">
+      <img alt="Home do Habit versão mobile" src=".github/mobile-image.jpg" heigth="50%" />
+    </td>
+    <td valign="center">
+      <img alt="Dia da semana com os Habitos" src=".github/mobile-habitsDay.jpg" heigth="50%" />
+    </td>
+  </tr>
+</table>
+
+
+
 
 ## 🚀 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - React -> Front-end
+- tailwind -> css
 - [Vite](https://vitejs.dev/)
 - Typescript -> Back-end, Front-end, Mobile
 - Prisma -> ORM

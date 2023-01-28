@@ -26,6 +26,9 @@
 - npm i zod // validar os dados vindo da requisição -> exmplo: routers.ts
 - npm i dayjs // biblioteca para trabalhar com datas
 
+- npm i web-push / push Manager api -> notification push + service Workers
+- npm i @types/web-push -D
+
 # Config
 package.josn
 

@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import { useState } from 'react';
 import { HabitsList } from './HabitsList';
 
-import { ProgressBar } from './ProgressBar';
+import { ProgressBar } from '../ProgressBar';
 
 interface HabitDayProps {
     date: Date

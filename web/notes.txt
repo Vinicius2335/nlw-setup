@@ -4,7 +4,13 @@
 - npm i -D tailwindcss postcss autoprefixer
   -> postcss automatizar tarefas dentro do css
   -> autoprefixer prefixo dos browser como -webkit
-- npx tailwindcss init -p // para criar as config
+  - npx tailwindcss init -p // para criar as config
+  - editar o content de tailwind.config.cjs
+  - adicionar as 3 config em styles/global.css
 - npm i dayjs
 - npm i clsx // para utilizar classe de forma condicional, ex: HabitDay
 - npm i axios
+
+# After
+
+- Service Workers-> são scripts que podemos manter executando mesmo com a aplicaçao fechada / usuario offline

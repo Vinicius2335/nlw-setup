@@ -2,6 +2,7 @@
 import fastify from "fastify";
 import cors from "@fastify/cors"
 import { appRoutes } from "./routes";
+import { notificationRoutes } from "./notification-routes";
 
 const app = fastify()
 
@@ -14,6 +15,7 @@ app.register(cors, {
 // qualquer aplicaçao consuma os dados do backend
 app.register(cors)
 app.register(appRoutes)
+app.register(notificationRoutes)
 
 // host: "0.0.0.0" -> pra não dar problemo na conexao mobile
 app.listen({

@@ -6,6 +6,15 @@ import {
     useFonts
 } from '@expo-google-fonts/inter';
 import {StatusBar} from 'react-native';
+import * as Notifications from "expo-notifications"
+
+Notifications.setNotificationHandler({
+    handleNotification: async () => ({
+        shouldShowAlert: true,
+        shouldPlaySound: false,
+        shouldSetBadge: false
+    })
+})
 
 import {Loading} from './src/components/Loading';
 import "./src/lib/dayjs"
@@ -19,6 +28,20 @@ export default function App() {
         Inter_700Bold,
         Inter_800ExtraBold
     })
+
+    // Notifications
+    async function scheduleNotification(){
+        const trigger = new Date(Date.now())
+        trigger.setMinutes(trigger.getMinutes() + 1)
+
+        await Notifications.scheduleNotificationAsync({
+            content: {
+                title: "Olá, Vinicius!",
+                body: "Você praticou seus hábitos hoje ?"
+            },
+            trigger
+        })
+    }
 
     // se as fontes nao estiverem carregadas, impede que siga o fluxo da aplicação
     if (!fontsLoader) {

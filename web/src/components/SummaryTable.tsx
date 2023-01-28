@@ -1,5 +1,5 @@
 import {generateDatesFromYearBeginning} from "../utils/generate-dates-from-year-beginning"
-import {HabitDay} from "./HabitDay"
+import {HabitDay} from "./habit/HabitDay"
 import {useEffect, useState} from "react";
 import {api} from "../lib/axios";
 import {Summary} from "../models/Summary";

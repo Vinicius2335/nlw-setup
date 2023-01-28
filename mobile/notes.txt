@@ -36,6 +36,8 @@ https://react-native.rocketseat.dev
 - npx expo install react-native-reanimated // react native reanimated para animaçoes
   - config -> babel.config.js -> plugins -> 'react-native-reanimated/plugin'
 
+- npx expo install expo-notifications // notificaçao
+
 # OBS
 
 - app.json = as configuraçoes da nossa aplicação

@@ -1,7 +1,7 @@
 import { Plus, X } from "phosphor-react"
-import logoImage from "../assets/logo.svg"
+import logoImage from "../../assets/logo.svg"
 import * as Dialog from "@radix-ui/react-dialog"
-import { NewHabitForm } from "./NewHabitForm"
+import { NewHabitForm } from "../habit/NewHabitForm"
 
 export function Header() {
   // Imperativa vs Declarativa

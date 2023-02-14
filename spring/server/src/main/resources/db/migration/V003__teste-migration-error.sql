@@ -1,2 +1,2 @@
-INSERT INTO casa (nome)
-VALUES "Nao existe";
+--INSERT INTO casa (nome) VALUES ("Nao existe");
+SELECT 1;

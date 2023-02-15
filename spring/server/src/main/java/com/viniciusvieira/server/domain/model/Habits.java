@@ -1,10 +1,11 @@
 package com.viniciusvieira.server.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.annotations.Type;
 import org.hibernate.type.SqlTypes;
 
 import java.time.OffsetDateTime;
@@ -30,14 +31,17 @@ public class Habits {
     @Column(nullable = false)
     private String title;
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @Column(nullable = false)
     private OffsetDateTime createdAt;
 
     // Relacionamentos
-    @OneToMany(mappedBy = "habit", cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "habit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<HabitWeekDays> habitWeekDays = new ArrayList<>();
 
-    @OneToMany(mappedBy = "habit", cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "habit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<DayHabits> dayHabits = new ArrayList<>();
 
     public void adicionarWeekDays(List<Integer> weekDays){

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 @RequiredArgsConstructor
 @Service
-public class HabitsService {
+public class RegistrarHabitService {
     private final HabitsRepository habitsRepository;
     private final HabitsMapper habitsMapper;
 

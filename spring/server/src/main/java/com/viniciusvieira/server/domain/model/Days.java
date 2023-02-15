@@ -1,5 +1,7 @@
 package com.viniciusvieira.server.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -26,9 +28,11 @@ public class Days {
     @EqualsAndHashCode.Include
     private UUID idDay;
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @Column(nullable = false, unique = true)
     private OffsetDateTime date;
 
-    @OneToMany(mappedBy = "day", cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "day", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<DayHabits> dayHabits = new ArrayList<>();
 }

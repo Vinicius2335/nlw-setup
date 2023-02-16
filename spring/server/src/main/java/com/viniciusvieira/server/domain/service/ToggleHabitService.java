@@ -1,6 +1,5 @@
 package com.viniciusvieira.server.domain.service;
 
-import com.viniciusvieira.server.core.util.DataUtil;
 import com.viniciusvieira.server.domain.model.DayHabits;
 import com.viniciusvieira.server.domain.model.Days;
 import com.viniciusvieira.server.domain.model.Habits;
@@ -9,7 +8,6 @@ import com.viniciusvieira.server.domain.respository.DaysRepository;
 import com.viniciusvieira.server.domain.respository.HabitsRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.flywaydb.core.internal.util.DateUtils;
 import org.springframework.stereotype.Service;
 
 import java.time.OffsetDateTime;
@@ -34,25 +32,20 @@ public class ToggleHabitService {
         Habits habit = getHabitByIdOrThrowsHabitNotFoundException(idHabit);
         OffsetDateTime dateNow = OffsetDateTime.now();
 
-        OffsetDateTime dataZerada = DataUtil.zerarHorasOffsetDateTime(dateNow);
-        OffsetDateTime dataMaxima = DataUtil.beteewnHorasOffsetDateTime(dateNow);
-
-        Optional<Days> day = daysRepository.findByDate2(dataZerada, dataMaxima);
-        Days newDay = new Days();
+        Optional<Days> day = daysRepository.findByHabitId(idHabit);
 
         if (day.isEmpty()){
-             newDay = daysRepository.save(Days.builder().date(dateNow).build());
+            day = Optional.of(daysRepository.save(Days.builder().date(dateNow).build()));
         }
 
         Optional<DayHabits> dayHabit = dayHabitsRepository.findByHabitIdAndIdDay(habit.getIdHabit(),
-                newDay.getIdDay());
+                day.get().getIdDay());
 
         if (dayHabit.isPresent()){
             dayHabitsRepository.deleteById(dayHabit.get().getIdDayHabit());
+            daysRepository.deleteById(day.get().getIdDay());
         } else {
-            dayHabitsRepository.save(DayHabits.builder().habit(habit).day(newDay).build());
+            dayHabitsRepository.save(DayHabits.builder().habit(habit).day(day.get()).build());
         }
     }
-
-
 }

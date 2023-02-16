@@ -44,13 +44,11 @@ public class HabitController {
                 .body(newHabit);
     }
 
-    // BUG não está funcionando
     @GetMapping("/day")
     public ResponseEntity<DetailOfTheDayResponseBody> buscarHabitPorData(@RequestParam String date){
         log.info("Buscando hábitos por dia...");
         OffsetDateTime dateAsOffsetDateTime = DataUtil.converterStringEmOffsetDateTime(date);
         DetailOfTheDayResponseBody responseBody = buscarDetalhesDoDiaService.findDetailsOfTheDay(dateAsOffsetDateTime);
-        log.info(dateAsOffsetDateTime);
         log.info("Buscar hábitos por data realizada com sucesso...");
         log.info(responseBody);
 
@@ -60,7 +58,7 @@ public class HabitController {
     }
 
     // TODO excluir dps
-    @GetMapping("habits")
+    @GetMapping("/habits")
     public ResponseEntity<List<Habits>> getAllHabits(){
         return ResponseEntity
                 .status(HttpStatus.OK)

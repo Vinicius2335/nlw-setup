@@ -1,2 +1,1 @@
---INSERT INTO casa (nome) VALUES ("Nao existe");
-SELECT 1;
+SELECT * FROM habits;

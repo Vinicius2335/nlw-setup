@@ -22,6 +22,7 @@ public class RegistrarHabitService {
     public HabitResponseBody createNewHabit(HabitsRequestBody habitRequest){
         Habits newHabit = Habits.builder()
                 .title(habitRequest.getTitle())
+                //@CreationTimestampo cria sozinho, mas fica esquisito no HabitResponseBody
                 .createdAt(OffsetDateTime.now())
                 .habitWeekDays(new ArrayList<>())
                 .build();

@@ -27,9 +27,4 @@ public class BuscarDetalhesDoDiaService {
                 .completedHabits(completedHabitsByDate2)
                 .build();
     }
-
-    // TODO excluir depois
-    public List<Habits> getAllHabits(){
-        return habitsRepository.findAll();
-    }
 }

@@ -3,9 +3,10 @@ package com.viniciusvieira.server.api.controller;
 import com.viniciusvieira.server.api.representation.model.requestbody.HabitsRequestBody;
 import com.viniciusvieira.server.api.representation.model.responsebody.DetailOfTheDayResponseBody;
 import com.viniciusvieira.server.api.representation.model.responsebody.HabitResponseBody;
+import com.viniciusvieira.server.api.representation.model.responsebody.SummaryResponseBody;
 import com.viniciusvieira.server.core.util.DataUtil;
-import com.viniciusvieira.server.domain.model.Habits;
 import com.viniciusvieira.server.domain.service.BuscarDetalhesDoDiaService;
+import com.viniciusvieira.server.domain.service.BuscarSummaryService;
 import com.viniciusvieira.server.domain.service.RegistrarHabitService;
 import com.viniciusvieira.server.domain.service.ToggleHabitService;
 import jakarta.validation.Valid;
@@ -26,13 +27,7 @@ public class HabitController {
     private final RegistrarHabitService registrarHabitService;
     private final BuscarDetalhesDoDiaService buscarDetalhesDoDiaService;
     private final ToggleHabitService toggleHabitService;
-
-    @GetMapping("/habit")
-    public ResponseEntity<String> helloHabit(){
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .body("Hello Habit");
-    }
+    private final BuscarSummaryService buscarSummaryService;
 
     @PostMapping("/habit")
     public ResponseEntity<HabitResponseBody> createNewHabit(@RequestBody @Valid HabitsRequestBody habitsRequest){
@@ -50,24 +45,22 @@ public class HabitController {
         OffsetDateTime dateAsOffsetDateTime = DataUtil.converterStringEmOffsetDateTime(date);
         DetailOfTheDayResponseBody responseBody = buscarDetalhesDoDiaService.findDetailsOfTheDay(dateAsOffsetDateTime);
         log.info("Buscar hábitos por data realizada com sucesso...");
-        log.info(responseBody);
 
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(responseBody);
     }
 
-    // TODO excluir dps
-    @GetMapping("/habits")
-    public ResponseEntity<List<Habits>> getAllHabits(){
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .body(buscarDetalhesDoDiaService.getAllHabits());
-    }
-
     @PutMapping("/habits/{idHabit}/toggle")
     public ResponseEntity<Void> toggleHabit(@PathVariable UUID idHabit){
         toggleHabitService.toggleHabit(idHabit);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/summary")
+    public ResponseEntity<List<SummaryResponseBody>> summaryHabit(){
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(buscarSummaryService.summaryHabit());
     }
 }

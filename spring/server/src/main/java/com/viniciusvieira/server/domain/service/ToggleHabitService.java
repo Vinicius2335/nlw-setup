@@ -1,5 +1,6 @@
 package com.viniciusvieira.server.domain.service;
 
+import com.viniciusvieira.server.domain.exception.HabitNotFoundException;
 import com.viniciusvieira.server.domain.model.DayHabits;
 import com.viniciusvieira.server.domain.model.Days;
 import com.viniciusvieira.server.domain.model.Habits;
@@ -21,10 +22,9 @@ public class ToggleHabitService {
     private final DaysRepository daysRepository;
     private final DayHabitsRepository dayHabitsRepository;
 
-    // TODO criar a Exception HabiNotFoundException
     public Habits getHabitByIdOrThrowsHabitNotFoundException(UUID idHabit){
         return habitsRepository.findById(idHabit)
-                .orElseThrow(() -> new RuntimeException("Habi nao foi encontrado"));
+                .orElseThrow(() -> new HabitNotFoundException("Habi nao foi encontrado"));
     }
 
     @Transactional

@@ -14,14 +14,8 @@ public interface  HabitsRepository extends JpaRepository<Habits, UUID> {
     @Query("select h from Habits h where h.createdAt <= ?1")
     List<Habits> findPossibleHabitsByDate(OffsetDateTime createdAt);
 
-    //@Query("select h.idHabit from Habits h inner join h.dayHabits dayHabits where dayHabits.day.date = ?1")
-    //List<String> findCompletedHabitsByDate(OffsetDateTime date);
-
     @Query("select h.idHabit from Habits h " +
             "inner join h.dayHabits dayHabits " +
             "where dayHabits.day.date between ?1 and ?2")
     List<String> findCompletedHabitsByBetWeenDate(OffsetDateTime dateStart, OffsetDateTime dateEnd);
-
-
-
 }

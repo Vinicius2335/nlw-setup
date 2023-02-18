@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @Log4j2
 public class HabitController {
@@ -29,7 +30,7 @@ public class HabitController {
     private final ToggleHabitService toggleHabitService;
     private final BuscarSummaryService buscarSummaryService;
 
-    @PostMapping("/habit")
+    @PostMapping("/habits")
     public ResponseEntity<HabitResponseBody> createNewHabit(@RequestBody @Valid HabitsRequestBody habitsRequest){
         log.info("Criando novo hábito...");
         HabitResponseBody newHabit = registrarHabitService.createNewHabit(habitsRequest);
@@ -40,10 +41,10 @@ public class HabitController {
     }
 
     @GetMapping("/day")
-    public ResponseEntity<DetailOfTheDayResponseBody> buscarHabitPorData(@RequestParam String date){
+    public ResponseEntity<DetailOfTheDayResponseBody> buscarHabitPorData(@RequestParam OffsetDateTime date){
         log.info("Buscando hábitos por dia...");
-        OffsetDateTime dateAsOffsetDateTime = DataUtil.converterStringEmOffsetDateTime(date);
-        DetailOfTheDayResponseBody responseBody = buscarDetalhesDoDiaService.findDetailsOfTheDay(dateAsOffsetDateTime);
+        //OffsetDateTime dateAsOffsetDateTime = DataUtil.converterStringEmOffsetDateTime(date);
+        DetailOfTheDayResponseBody responseBody = buscarDetalhesDoDiaService.findDetailsOfTheDay(date);
         log.info("Buscar hábitos por data realizada com sucesso...");
 
         return ResponseEntity

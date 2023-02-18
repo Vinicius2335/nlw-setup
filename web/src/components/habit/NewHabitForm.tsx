@@ -5,13 +5,13 @@ import { FormEvent, useState } from "react"
 import { api } from "../../lib/axios"
 
 const availableWeekDay = [
-  "Domingo",
   "Segunda-Feira",
   "Terça-Feira",
   "Quarta-Feira",
   "Quinta-Feira",
   "Sexta-Feira",
-  "Sabado"
+  "Sabado",
+  "Domingo"
 ]
 
 export function NewHabitForm() {

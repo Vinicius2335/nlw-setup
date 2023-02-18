@@ -5,7 +5,7 @@ import {api} from "../lib/axios";
 import {Summary} from "../models/Summary";
 import dayjs from "dayjs";
 
-const weekDays = ["D", "S", "T", "Q", "Q", "S", "S"]
+const weekDays = ["S", "T", "Q", "Q", "S", "S", "D"]
 
 const summaryDates = generateDatesFromYearBeginning()
 const minimumSummaryDatesSize = 18 * 7

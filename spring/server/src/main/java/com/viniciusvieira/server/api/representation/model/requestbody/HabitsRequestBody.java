@@ -18,6 +18,6 @@ public class HabitsRequestBody {
     @NotEmpty
     private String title;
 
-    @Size(max = 6)
+    @Size(max = 7)
     private List<@Max(6) Integer> weekDays;
 }

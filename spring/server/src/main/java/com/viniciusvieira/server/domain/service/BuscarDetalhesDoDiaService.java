@@ -22,6 +22,8 @@ public class BuscarDetalhesDoDiaService {
         List<String> completedHabitsByDate2 = habitsRepository.findCompletedHabitsByBetWeenDate(dateStart, dateEnd);
         List<Habits> possibleHabitsByDate = habitsRepository.findPossibleHabitsByDate(date);
 
+        System.out.println(possibleHabitsByDate);
+
         return DetailOfTheDayResponseBody.builder()
                 .possigleHabits(possibleHabitsByDate)
                 .completedHabits(completedHabitsByDate2)

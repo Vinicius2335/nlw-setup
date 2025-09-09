@@ -43,7 +43,6 @@ public class HabitController {
     @GetMapping("/day")
     public ResponseEntity<DetailOfTheDayResponseBody> buscarHabitPorData(@RequestParam OffsetDateTime date){
         log.info("Buscando hábitos por dia...");
-        //OffsetDateTime dateAsOffsetDateTime = DataUtil.converterStringEmOffsetDateTime(date);
         DetailOfTheDayResponseBody responseBody = buscarDetalhesDoDiaService.findDetailsOfTheDay(date);
         log.info("Buscar hábitos por data realizada com sucesso...");
 

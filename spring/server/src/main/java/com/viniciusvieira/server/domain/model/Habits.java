@@ -42,7 +42,7 @@ public class Habits {
 
     // Relacionamentos
     @JsonIgnore
-    @OneToMany(mappedBy = "habit", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @ToString.Exclude
     private List<HabitWeekDays> habitWeekDays = new ArrayList<>();
 

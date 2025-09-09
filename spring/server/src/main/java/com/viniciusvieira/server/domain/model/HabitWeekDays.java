@@ -28,7 +28,7 @@ public class HabitWeekDays {
     @Column(nullable = false, unique = true)
     private int weekDay;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "habitWeekDays", fetch = FetchType.LAZY)
     @JoinColumn(name = "habit_id", unique = true)
     private Habits habit;
 }

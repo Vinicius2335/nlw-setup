@@ -53,6 +53,9 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Prisma -> ORM
 - SQLite -> Banco de dados
 - React Native -> Mobile
+- Spring Boot -> Back-end
+  - Java 17
+  - MySql
 
 
 ## 💻 Projeto
